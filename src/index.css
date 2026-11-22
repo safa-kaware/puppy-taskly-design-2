@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --color-forest: #344E41;
+  --color-sage: #A3B18A;
+  --color-oatmeal: #DAD7CD;
+  --color-cream: #F5F0E8;
+  --color-terracotta: #CB997E;
+  --color-charcoal: #292D28;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: #F5F0E8;
+    color: #292D28;
+  }
+
+  h1, h2, h3, h4, .font-editorial {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+}
+
+@keyframes pawStep {
+  0%, 100% {
+    opacity: 0.28;
+    transform: translateY(0px) scale(0.96);
+  }
+  50% {
+    opacity: 0.78;
+    transform: translateY(-3px) scale(1.04);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-paw-1 {
+  animation: pawStep 3.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-paw-2 {
+  animation: pawStep 3.2s cubic-bezier(0.16, 1, 0.3, 1) 0.45s infinite;
+}
+
+.animate-paw-3 {
+  animation: pawStep 3.2s cubic-bezier(0.16, 1, 0.3, 1) 0.9s infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-paw-1,
+  .animate-paw-2,
+  .animate-paw-3,
+  .animate-float-gentle {
+    animation: none;
+  }
+}
